@@ -50,8 +50,8 @@ app.put("/tarefas",async (req, res)=>{
   res.json(resultado);
 });
 //endpoint remoção de tarefa
-app.delete("/tarefas", async (req,res) => {
-  const resultado = await tarefasCollection.deleteOne({_id: ObjectId(req.body._id)})
+app.delete("/tarefas/:id", async (req,res) => {
+  const resultado = await tarefasCollection.deleteOne({_id: ObjectId(req.params.id)})
   res.send(resultado);
 });
 
